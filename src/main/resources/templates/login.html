@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Insert title here</title>
+    <!--<meta name="CSRF_TOKEN" th:content="${#session.getAttribute('csrfSalt')}">-->
+</head>
+<body>
+<h2>登录<span th:text="${msg}"></span></h2>
+<div>
+    <form th:action="${#servletContext.contextPath} + '/login'" method="post">
+        <input type="hidden" name="csrfToken" th:value="${#session.getAttribute('csrfSalt')}">
+        <input type="text" name="userName">
+        <input type="password" name="password">
+        <input type="submit" value="submit">
+    </form>
+</div>
+</body>
+</html>
